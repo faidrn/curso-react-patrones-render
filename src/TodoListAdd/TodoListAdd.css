@@ -1,0 +1,28 @@
+.todo-list-add{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+/* Estilos para pantallas pequeñas */
+/* max = hasta*/
+@media (max-width: 600px) {
+    /*
+      iPhone SE (375px de ancho).
+      Samsung Galaxy S8 (360px de ancho).
+    */
+    
+  }
+  
+  /* Estilos para pantallas medianas */
+  /* min = desde*/
+  @media (min-width: 600px) and (max-width: 900px) {
+    /*
+      iPad Mini (768px en orientación vertical).
+      iPhone 14 Pro Max (390px en modo horizontal).
+    */
+    .container-list-add h2{
+      font-size: 33px;
+    }
+  }

@@ -1,0 +1,117 @@
+.container-add-todo{
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.container-add-todo-hidden{
+    display: none;
+
+}
+
+.container-input-add-todo{
+    width: 111%;
+    height: 115px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 2px solid #FFFFE0;
+    border-radius: 7px;
+    background: lightgray;
+    position: absolute;
+    top: 156px;
+}
+
+.input-add-todo{
+    border: 2px solid #E8E8E8;
+    background: #F5F5F5;
+    font-size: 18px;
+    height: 40px;
+    width: 365px;
+    border-radius: 7px;
+    padding-left: 9px;
+    outline: none;
+    color: gray;
+}
+
+.input-search:focus{
+  outline: auto;
+  outline-color: #FFFFE0;
+}
+
+.btn-add-todo{
+    position: relative;
+    right: -136px;
+    font-size: 17px;
+    width: 100px;
+    height: 30px;
+}
+
+.btn-enabled{
+    background: #00BFFF;
+    color: white;
+    font-weight: 500;
+    border: 3px solid #FFFFE0;
+    cursor: pointer;
+}
+
+.btn-disabled {
+    background-color: #ccc; /* Gris */
+    color: #666;
+    cursor: not-allowed;
+  }
+
+/* Estilos para pantallas medianas */
+/* min = desde*/
+@media (min-width: 600px) and (max-width: 900px) {
+    /*
+      iPad Mini (768px en orientación vertical).
+      iPhone 14 Pro Max (390px en modo horizontal).
+    */
+    .container-input-add-todo{
+        width: 80%;
+        height: 158px;
+        top: 179px;
+    }
+
+    .input-add-todo{
+        font-size: 24px;
+        height: 55px;
+        width: 490px;
+    }
+
+    .btn-add-todo{
+        right: -188px;
+        font-size: 22px;
+        width: 115px;
+        height: 40px;
+    }
+  }
+  
+  /* Estilos para pantallas grandes */
+  @media (min-width: 900px) {
+    /*
+      iPad Pro 12.9" (1024px en modo horizontal).
+      Laptops pequeñas (1366px de ancho típico).
+    */
+
+    .container-input-add-todo{
+        max-width: 40%;
+        height: 158px;
+        top: 179px;
+    }
+
+    .input-add-todo{
+        height: 50px;
+        width: 490px;
+    }
+
+    .btn-add-todo{
+        right: -188px;
+        font-size: 21px;
+        width: 125px;
+        height: 42px;
+    }
+  }

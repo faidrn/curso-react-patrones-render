@@ -1,26 +1,42 @@
-import React from 'react';
-import { ReactComponent as CheckSVG } from './check.svg';
-import { ReactComponent as DeleteSVG } from './delete.svg';
+import { ReactComponent as MoveIconSVG} from './moveNextIcon.svg';
+import { ReactComponent as DeleteIconSVG} from './deleteIcon.svg';
+import { ReactComponent as CompleteIconSVG} from './checkIcon.svg';
 import './TodoIcon.css';
 
+
 const iconTypes = {
-  "check": color => (
-    <CheckSVG className="Icon-svg Icon-svg--check" fill={color} />
-  ),
-  "delete": color => (
-    <DeleteSVG className="Icon-svg Icon-svg--delete" fill={color} />
-  ),
+    "doing": <MoveIconSVG className='icon' />,
+    "delete": <DeleteIconSVG className='icon' />, 
+    "todo": <MoveIconSVG className='icon' />, 
+    "done": <MoveIconSVG className='icon' />, 
+    "completed": <CompleteIconSVG className='icon' />, 
 };
 
-function TodoIcon({ type, color = 'gray', onClick }) {
-  return (
-    <span
-      className={`Icon-container Icon-container--${type}`}
-      onClick={onClick}
-    >
-      {iconTypes[type](color)}
-    </span>
-  );
+const titleIcons = {
+    "doing": "Move task to the Doing tab",
+    "delete": "Delete task", 
+    "todo": "Move task to the To Do tab", 
+    "done": "Move task to the Done tab", 
+    "completed": "Task completed", 
+};
+
+const classIcons = {
+    "doing": "padding-right-doing",
+    "todo": "move-todo-tab",
+    "completed": "status-compeleted",
+};
+
+
+function TodoIcon({ type, fill, onClick }){
+    return (
+        <span
+            className={`icon-fill-${fill} ${classIcons[type]} cursor-pointer`} 
+            title={titleIcons[type]}
+            onClick={onClick}
+        >
+            {iconTypes[type]}
+        </span>
+    );
 }
 
-export { TodoIcon };
+export { TodoIcon }; 

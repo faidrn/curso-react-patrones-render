@@ -1,0 +1,206 @@
+:root{
+    --white: #FCFCFC;
+    --gray: #CBCDD3;
+    --dark: #777777;
+    --error: #EF8D9C;
+    --orange: #FFC39E;
+    --success: #B0DB7D;
+    --secondary: #99DBB4;
+    --font: 'Lato', sans-serif;
+}
+
+.container-error {
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+    width: 100%;
+    height: 210px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    top: 40px;
+}
+
+.title {
+    font-size: 1.3em;
+    font-weight: 100;
+    letter-spacing: 3px;
+    padding-top: 5px;
+    color: var(--white);
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.red {
+    color: darken(var(--error), 10%);
+}
+
+.alert {
+    font-weight: 700;
+    letter-spacing: 5px;
+}
+
+.error-message {
+    margin-top: -5px;
+    font-size: 1.0em;
+    font-weight: 100;
+    color: darken(var(--dark), 10%);
+    letter-spacing: 1px;
+    padding-bottom: 5px;
+}
+
+#error-box {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to bottom left, var(--error) 40%, var(--orange) 100%);
+    border-radius: 20px;
+    box-shadow: 5px 5px 20px rgba(var(--gray), 10%);
+}
+
+
+.face2 {
+    position: absolute;
+    width: 22%;
+    height: 22%;
+    background: var(--white);
+    border-radius: 50%;
+    border: 1px solid var(--dark);
+    top: 21%;
+    left: 37.5%;
+    z-index: 2;
+    animation: roll 3s ease-in-out infinite;
+}
+    
+.eye {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: var(--dark);
+    border-radius: 50%;
+    top: 40%;
+    left: 20%;
+}
+
+.right {
+    left: 68%;
+}
+
+.mouth {
+    position:absolute;
+    top: 43%;
+    left: 41%;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+}
+
+.sad {
+    top: 49%;
+    border: 2px solid;
+    border-color: var(--dark) transparent transparent var(--dark);
+    transform: rotate(45deg);
+}
+
+.shadow {
+    position: absolute;
+    width: 21%;
+    height: 3%;
+    opacity: .5;
+    background: var(--dark);
+    left: 40%;
+    top: 43%;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.move {
+    animation: move 3s ease-in-out infinite;
+}
+
+.message {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    height: 40%;
+    top: 47%;
+}
+
+/* Estilos para pantallas medianas */
+/* min = desde*/
+@media (min-width: 600px) and (max-width: 900px) {
+    /*
+      iPad Mini (768px en orientación vertical).
+      iPhone 14 Pro Max (390px en modo horizontal).
+    */
+    .container-error{
+        height: 344px;
+    }
+
+    .title{
+        font-size: 2.3em;
+    }
+
+    .error-message{
+        font-size: 1.5em;
+        padding-bottom: 10px;
+    }
+  }
+  
+  /* Estilos para pantallas grandes */
+  @media (min-width: 900px) {
+    /*
+      iPad Pro 12.9" (1024px en modo horizontal).
+      Laptops pequeñas (1366px de ancho típico).
+    */
+
+    .container-error {
+        width: 700px;
+        height: 240px; /* 250px; */
+    }
+    
+    .title {
+        font-size: 1.5em;
+        padding-bottom: 10px;
+    }
+    
+    .red {
+        color: darken(var(--error), 10%);
+    }
+    
+    .error-message {
+        font-size: 1em;
+    }
+    
+    #error-box {
+        width: 35%;
+    }
+  }
+
+
+@keyframes roll {
+    0% {
+      transform: rotate(0deg);
+      left: 25%;
+    }
+    50% {
+      left: 60%;
+      transform: rotate(168deg);
+    }
+    100% {
+      transform: rotate(0deg);
+      left: 25%;
+    }
+}
+
+@keyframes move {
+    0% {
+      left: 25%;
+    }
+    50% {
+      left: 60%;
+    }
+    100% {
+      left: 25%;
+    }
+}

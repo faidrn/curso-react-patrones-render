@@ -1,10 +1,37 @@
-.TodoCounter {
-  font-size: 24px;
-  text-align: center;
-  margin: 0;
-  padding: 48px;
+.TodoCounter{
+    font-size: 24px;
+    text-align: center;
+    margin: 0;
+    padding: 48px;
+    font-weight: normal;
 }
 
-.TodoCounter--loading {
-  opacity: 25%;
+.TodoCounter span{
+    font-weight: bold;
 }
+
+
+/* Estilos para pantallas pequeñas */
+/* max = hasta*/
+@media (max-width: 600px) {
+    /*
+        iPhone SE (375px de ancho).
+        Samsung Galaxy S8 (360px de ancho).
+    */
+    .TodoCounter{
+        padding: 30px;
+    }
+}
+  
+  /* Estilos para pantallas medianas */
+  /* min = desde*/
+  @media (min-width: 600px) and (max-width: 900px) {
+    /*
+        iPad Mini (768px en orientación vertical).
+        iPhone 14 Pro Max (390px en modo horizontal).
+    */
+    .TodoCounter{
+        font-size: 35px;
+        padding: 30px;
+    }
+  }

@@ -1,0 +1,164 @@
+.container-empty-todos{
+    height: 29vh;
+    margin-top: 36px;
+}
+
+.empty-icon-container{
+    margin:1em auto;
+    text-align:center;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Dosis', sans-serif;
+  
+  }
+  .animation-container{
+    position:relative;
+    display:block;
+    text-align: center;
+    height:100px;
+    width:100px;
+    border-bottom: solid 2px #333;
+    overflow:hidden;
+  }
+  .bounce{
+    display: inline-block;
+    position:absolute;
+    bottom:0;
+    left:50%;
+    width:40px;
+    height:40px;
+    margin-left: -20px;
+    background-size: contain;
+    animation: bounceAnim 1s cubic-bezier(.63,.09,.75,.46) infinite alternate,
+              spinAnim 3s linear infinite;
+  }
+
+  
+  @keyframes bounceAnim{
+    0%, 10% { bottom: 50%; }
+  
+    100% { bottom: 0%; }
+  }
+  @keyframes spinAnim{
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .pebble1{
+    position:absolute;
+    top:95%;
+    background-color:#333;
+    width:10px;
+    height:10px;
+    border-radius: 20px 20px 0px 0px;
+    animation: pebblesAnim 1s linear infinite;
+  }
+  .pebble2{
+    position:absolute;
+    top:97%;
+    background-color:#333;
+    width:5px;
+    height:5px;
+    border-radius: 10px 10px 0px 0px;
+    animation: pebblesAnim 2s linear infinite;
+  }
+  .pebble3{
+    position:absolute;
+    top:98%;
+    background-color:#333;
+    width:3px;
+    height:3px;
+    border-radius: 20px 20px 0px 0px;
+    animation: pebblesAnim 3s linear infinite;
+  }
+  
+  @keyframes pebblesAnim{
+    0% { right: -20%; }
+    100% { right: 110%; }
+  }
+
+  /* Estilos para pantallas medianas */
+/* min = desde*/
+@media (min-width: 600px) and (max-width: 900px) {
+    /*
+      iPad Mini (768px en orientación vertical).
+      iPhone 14 Pro Max (390px en modo horizontal).
+    */
+    .container-empty-todos{
+        height: 28vh;
+    }
+
+    .animation-container{
+        height: 140px;
+        width: 140px;
+    }
+
+    .bounce{
+        height: 60px;
+        width: 60px;
+    }
+
+    .pebble1{
+        height: 20px;
+        width: 20px;
+    }
+
+    .pebble2{
+        height: 10px;
+        width: 10px;
+    }
+
+    .pebble3{
+        height: 6px;
+        width: 6px;
+    }
+
+    h2, p{
+        font-size: 34px;
+    }
+  }
+  
+  /* Estilos para pantallas grandes */
+  @media (min-width: 900px) {
+    /*
+      iPad Pro 12.9" (1024px en modo horizontal).
+      Laptops pequeñas (1366px de ancho típico).
+    */
+    .container-empty-todos{
+        height: 33vh;
+    }
+
+    .animation-container{
+        height: 120px;
+        width: 120px;
+    }
+
+    .bounce{
+        height: 50px;
+        width: 50px;
+    }
+
+    .pebble1{
+        height: 20px;
+        width: 20px;
+    }
+
+    .pebble2{
+        height: 10px;
+        width: 10px;
+    }
+
+    .pebble3{
+        height: 6px;
+        width: 6px;
+    }
+
+    h2, p{
+        font-size: 30px;
+    }
+  }

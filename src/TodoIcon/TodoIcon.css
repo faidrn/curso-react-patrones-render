@@ -1,30 +1,66 @@
-.Icon-container {
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 48px;
-  width: 48px;
-  /* background-color: #CCC; */
-}
-.Icon-container--check {
-  position: absolute;
-  left: 12px;
-}
-.Icon-container--delete {
-  position: absolute;
-  top: -24px;
-  right: 0;
+.icon{
+    height: 30px;
+    width: 30px;
 }
 
-.Icon-svg {
-  width: 24px;
-  height: 24px;
-  transition: fill .15s;
+.icon-fill-gray{
+    fill: gray;
 }
-.Icon-container:hover .Icon-svg--check {
-  fill: #4caf50;
+
+.icon-fill-red{
+    fill: red;
 }
-.Icon-container:hover .Icon-svg--delete {
-  fill: red;
+
+.icon-fill-yellow{
+  fill: #FFD700;
 }
+
+.icon-fill-green{
+  fill: #008000;
+}
+
+.padding-right-doing{
+    padding-right: 10px;
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+.move-todo-tab{
+  padding-left: 10px;
+  transform: rotateY(180deg);
+  cursor: pointer;
+}
+
+.status-compeleted{
+  position: relative;
+  top: -21px;
+  width: 100%;
+  left: 17px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+/* Estilos para pantallas pequeñas */
+/* max = hasta*/
+@media (max-width: 600px) {
+    /*
+      iPhone SE (375px de ancho).
+      Samsung Galaxy S8 (360px de ancho).
+    */
+    
+  }
+  
+ /* Estilos para pantallas medianas */
+/* min = desde*/
+@media (min-width: 600px) and (max-width: 900px) {
+    /*
+      iPad Mini (768px en orientación vertical).
+      iPhone 14 Pro Max (390px en modo horizontal).
+    */
+    .icon{
+      height: 40px;
+      width: 40px;
+    }
+  }

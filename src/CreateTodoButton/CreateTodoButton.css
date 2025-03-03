@@ -1,26 +1,53 @@
-.CreateTodoButton {
-  background-color: #61DAFA;
-  box-shadow: 0px 5px 25px rgba(97, 218, 250, 0.5);
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 50px;
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  font-weight: bold;
-  color: #FAFAFA;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 64px;
-  width: 64px;
-
-  transform: rotate(0);
-  transition: .3s ease;
-  z-index: 1;
+.btn-add-new{
+    border: none;
+    font-size: 16px;
+    position: relative;
+    left: 297px;
+    color: gray;
+    font-weight: 500;
+    background: none;
+    cursor: pointer;
+    width: 137px;
+    height: 30px;
+    z-index: 1;
 }
 
-.CreateTodoButton:hover {
-  transform: rotate(224deg);
+.btn-add-new::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px solid white;
+    border-radius: 5px;
+    width: 137px;
+    height: 30px;
+    opacity: 0;
+    transform: scale(1.2);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+ }
+
+ .btn-add-new:hover::before {
+    opacity: 1;
+    transform: scale(1);
 }
+
+.plus{
+    font-size: 20px;
+}
+
+/* Estilos para pantallas pequeñas */
+/* max = hasta*/
+@media (max-width: 600px) {
+    /*
+      iPhone SE (375px de ancho).
+      Samsung Galaxy S8 (360px de ancho).
+    */
+    .btn-add-new{
+        font-size: 19px;
+        left: 260px;
+        width: 150px;
+        height: 35px;
+    }
+  }

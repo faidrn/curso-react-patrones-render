@@ -1,38 +1,113 @@
-.App {
-  text-align: center;
+#root{
+  max-width: 100%;
+  /*height: 100vh;*/
+  padding: 25px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.todo-container{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding-top: 20px;
+  margin-top: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.container-list-add, 
+.container-list-doing, 
+.container-list-done{
+  width: 470px;
+  background: #E8E8E8; /*#E6E6FA;*/
+  border-radius: 13px;
+  margin-bottom: 30px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+h2{
+  margin-left: 15px;
+  margin-top: 9px;
+}
+
+ul{
+  font-size: 16px;
+  list-style-type: none;
+  padding: 18px;
+}
+
+li{
+  padding-bottom: 10px;
+}
+
+.todo-list{
+  background: #F5F5F5; /*#E8E8E8;*/
+  border-radius: 9px;
+  padding: 10px;
+}
+
+.buttons-todo-list{
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+/* Estilos para pantallas pequeñas */
+/* max = hasta*/
+@media (max-width: 600px) {
+  /*
+    iPhone SE (375px de ancho).
+    Samsung Galaxy S8 (360px de ancho).
+  */
+  #root{
+    max-height: 100%;
   }
-  to {
-    transform: rotate(360deg);
+
+  .todo-container{
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
   }
+
+  .container-list-add, 
+  .container-list-doing, 
+  .container-list-done{
+    max-width: 100%;    
+  }
+
+  ul{
+    font-size: 20px;
+  }
+}
+
+/* Estilos para pantallas medianas */
+/* min = desde*/
+@media (min-width: 600px) and (max-width: 900px) {
+  /*
+    iPad Mini (768px en orientación vertical).
+    iPhone 14 Pro Max (390px en modo horizontal).
+  */
+  .todo-container{
+    flex-direction: column;
+    padding-top: 25px;
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .container-list-add, 
+  .container-list-doing, 
+  .container-list-done{
+    width: 100%;    
+  }
+
+  ul{
+    font-size: 30px;
+  }
+}
+
+/* Estilos para pantallas grandes */
+@media (min-width: 900px) {
+  /*
+    iPad Pro 12.9" (1024px en modo horizontal).
+    Laptops pequeñas (1366px de ancho típico).
+  */
 }

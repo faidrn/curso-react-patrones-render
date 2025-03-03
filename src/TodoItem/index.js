@@ -1,25 +1,27 @@
-import React from 'react';
-import { CompleteIcon } from '../TodoIcon/CompleteIcon';
-import { DeleteIcon } from '../TodoIcon/DeleteIcon';
-import './TodoItem.css';
+import { MoveToTheDoingTabIcon } from '../MoveToTheDoingTabIcon';
+import { DeleteIcon } from '../DeleteIcon';
 
-function TodoItem(props) {
-  return (
-    <li className="TodoItem">
-      <CompleteIcon
-        completed={props.completed}
-        onComplete={props.onComplete}
-      />
-      <p
-        className={`TodoItem-p ${props.completed && 'TodoItem-p--complete'}`}
-      >
-        {props.text}
-      </p>
-      <DeleteIcon
-        onDelete={props.onDelete}
-      />
-    </li>
-  );
-}
+function TodoItem(props){
+    return (
+      <li>
 
-export { TodoItem };
+        <div className='todo-list todo-list-add'>
+          
+          <p>{props.text}</p>
+
+          <div className="buttons-todo-list">
+            <MoveToTheDoingTabIcon 
+              onDoing={props.onDoing}
+            />
+
+              <DeleteIcon 
+                onDelete={props.onDelete}
+              />
+          </div>
+          
+        </div>
+      </li>
+    );
+  }
+
+  export { TodoItem };

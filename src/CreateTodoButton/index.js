@@ -1,19 +1,17 @@
-import React from 'react';
 import './CreateTodoButton.css';
 
-function CreateTodoButton(props) {
-  const onClickButton = () => {
-    props.setOpenModal(prevState => !prevState);
-  };
+function CreateTodoButton({setOpenModal}){
+    return (
+      <button className="btn-add-new"
+        onClick={() => {
+          setOpenModal(state => !state);
+        }}
+      >
+        <span className='plus'>+</span> Add new task
+      </button>
+    );
 
-  return (
-    <button
-      className="CreateTodoButton"
-      onClick={onClickButton}
-    >
-      +
-    </button>
-  );
-}
-
-export { CreateTodoButton };
+    
+  }
+  
+  export { CreateTodoButton };

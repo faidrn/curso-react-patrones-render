@@ -1,0 +1,22 @@
+.todo-list-done{
+    display: flex;
+    flex-direction: column;
+}
+
+.todo-list-done p{
+    position: relative;
+    top: -15px;
+}
+
+/* Estilos para pantallas medianas */
+/* min = desde*/
+@media (min-width: 600px) and (max-width: 900px) {
+    /*
+      iPad Mini (768px en orientación vertical).
+      iPhone 14 Pro Max (390px en modo horizontal).
+    */
+
+    .container-list-done h2{
+        font-size: 33px;
+    }
+}  
