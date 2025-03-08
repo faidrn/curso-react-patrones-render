@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { TodoProvider } from '../TodoContext';
+import { useTodos } from './useTodos';
 import { TodoCounter } from '../TodoCounter';
 import { TodoSearch } from '../TodoSearch';
 import { TodoListAdd } from '../TodoListAdd';
@@ -16,13 +16,9 @@ import { TodosError } from '../TodosError';
 import { EmptyTodos } from '../EmptyTodos';
 import { Modal } from '../Modal';
 import { TodoForm } from '../TodoForm';
-import { TodoContext } from '../TodoContext';
 import { TodoHeader } from '../TodoHeader';
+import { TodoUser } from '../TodoUser';
 
-////////////////////
-/// MINUTO 3:54 ///
-//////////////////
-//https://platzi.com/home/clases/2457-react-patrones-render/40857-composicion-de-componentes-sin-react-context/
 
 function App() {
   const {
@@ -41,7 +37,8 @@ function App() {
     totalTodos, 
     searchValue,
     setSearchValue, 
-  } = React.useContext(TodoContext);
+    addTodo, 
+  } = useTodos();
 
   return (
     //<React.Fragment> = <>
@@ -103,7 +100,10 @@ function App() {
                     )}
                     {openModal && (
                       <Modal>
-                        <TodoForm />
+                        <TodoForm 
+                          addTodo={addTodo} 
+                          setOpenModal={setOpenModal}
+                        />
                       </Modal>
                     )}            
                   </TodoListAdd>
