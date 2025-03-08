@@ -92,6 +92,8 @@ function App() {
                 onDoing={() => doingTodo(todo.text)}
                 onDelete={() => deleteTodo(todo.text)}
               />
+              // https://platzi.com/home/clases/2457-react-patrones-render/40859-poniendo-en-practica-las-render-props/
+              // min 7:48
             )}
           >
             {!loading && (
