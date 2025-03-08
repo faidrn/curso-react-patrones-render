@@ -58,79 +58,98 @@ function App() {
           } 
     
 
-                {!loading && (searchedTodosListed.length > 0 || searchedTodosDoing.length > 0
-                  || searchedTodosDone.length > 0) && (
-                    <>
-                      <TodoHeader>
-                        <TodoCounter 
-                            totalTodos={totalTodos} 
-                            completedTodos={completedTodos}
-                        /> 
-                        
-                        <TodoSearch 
-                            searchValue={searchValue} 
-                            setSearchValue={setSearchValue}
-                        />
-                      </TodoHeader>
-                    </>
-                  )
-                }
+          {!loading && (searchedTodosListed.length > 0 || searchedTodosDoing.length > 0
+            || searchedTodosDone.length > 0) && (
+              <>
+                <TodoHeader>
+                  <TodoCounter 
+                    totalTodos={totalTodos} 
+                    completedTodos={completedTodos}
+                  /> 
+                          
+                  <TodoSearch 
+                    searchValue={searchValue} 
+                    setSearchValue={setSearchValue}
+                  />
+                </TodoHeader>
+              </>
+            )
+          }
               
-                <TodoTabs />
+          <TodoTabs />
                 
                 
-                <div className='todo-container'> 
+          <div className='todo-container'> 
+          <TodoListAdd
+            loading={loading}
+            searchedTodosListed={searchedTodosListed}
+            onLoading={() => <TodosLoading />}
+            onEmptyTodos={() => <EmptyTodos />}
+            render={(todo) => (
+              <TodoItem
+                key={todo.text}
+                text={todo.text}
+                onDoing={() => doingTodo(todo.text)}
+                onDelete={() => deleteTodo(todo.text)}
+              />
+            )}
+          >
+            {!loading && (
+              <CreateTodoButton setOpenModal={setOpenModal} />
+            )}
+          </TodoListAdd>
+
+            {/* <TodoListAdd>
+              {loading && <TodosLoading />}
+              {searchedTodosListed.map(todo => (
+                <TodoItem 
+                  key={todo.text} 
+                  text={todo.text} 
+                  onDoing={() => doingTodo(todo.text)}
+                  onDelete={() => deleteTodo(todo.text)}
+                />
                   
-                  <TodoListAdd>
-                    {loading && <TodosLoading />}
-                    {searchedTodosListed.map(todo => (
-                      <TodoItem 
-                        key={todo.text} 
-                        text={todo.text} 
-                        onDoing={() => doingTodo(todo.text)}
-                        onDelete={() => deleteTodo(todo.text)}
-                      />
-                        
-                    ))}
-                        
-                    {!loading && (
-                      <CreateTodoButton 
-                        setOpenModal={setOpenModal}
-                      />
-                    )}
-                    {openModal && (
-                      <Modal>
-                        <TodoForm 
-                          addTodo={addTodo} 
-                          setOpenModal={setOpenModal}
-                        />
-                      </Modal>
-                    )}            
-                  </TodoListAdd>
-                      
-                  <TodoListDoing>
-                    {loading && <TodosLoading />}
-                    {searchedTodosDoing.map(todo => (
-                      <TodoItemDoing 
-                        key={todo.text} 
-                        text={todo.text} 
-                        onComplete={() => completeTodo(todo.text)}
-                        onTodo={() => returnTodo(todo.text)}
-                      />
-                    ))}
-                  </TodoListDoing>
-              
-                  <TodoListDone>
-                    {loading && <TodosLoading />}
-                    {searchedTodosDone.map(todo => (
-                      <TodoItemDone 
-                        key={todo.text} 
-                        text={todo.text}            
-                      />
-                    ))}
-                  </TodoListDone> 
-                </div>
-              
+              ))} 
+                  
+              {!loading && (
+                <CreateTodoButton 
+                  setOpenModal={setOpenModal}
+                />
+              )}
+                          
+            </TodoListAdd> */}
+            {openModal && (
+                <Modal>
+                  <TodoForm 
+                    addTodo={addTodo} 
+                    setOpenModal={setOpenModal}
+                  />
+                </Modal>
+              )}
+                
+            <TodoListDoing>
+              {loading && <TodosLoading />}
+              {searchedTodosDoing.map(todo => (
+                <TodoItemDoing 
+                  key={todo.text} 
+                  text={todo.text} 
+                  onComplete={() => completeTodo(todo.text)}
+                  onTodo={() => returnTodo(todo.text)}
+                />
+              ))}
+            </TodoListDoing>
+        
+            <TodoListDone>
+              {loading && <TodosLoading />}
+              {searchedTodosDone.map(todo => (
+                <TodoItemDone 
+                  key={todo.text} 
+                  text={todo.text}            
+                />
+              ))}
+            </TodoListDone> 
+          </div>
+          
         </>
       )}
     </>

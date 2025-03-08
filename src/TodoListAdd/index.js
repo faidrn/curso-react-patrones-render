@@ -1,6 +1,6 @@
 import './TodoListAdd.css';
 
-function TodoListAdd({ children }){
+function TodoListAdd(props){
     return (
       
       <div className='container-list-add'>
@@ -8,8 +8,12 @@ function TodoListAdd({ children }){
           To do
         </h2>
 
+        {props.loading && props.onLoading()}
+
+        {/* {(!props.loading && !props.searchedTodosListed.length) && props.onEmptyTodos()} */}
+        
         <ul>
-          {children}
+          {props.children}
         </ul>
       </div>
     );
