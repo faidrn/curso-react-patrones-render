@@ -85,7 +85,7 @@ function App() {
             searchedTodosListed={searchedTodosListed}
             onLoading={() => <TodosLoading />}
             onEmptyTodos={() => <EmptyTodos />}
-            render={(todo) => (
+            render={todo => (
               <TodoItem
                 key={todo.text}
                 text={todo.text}

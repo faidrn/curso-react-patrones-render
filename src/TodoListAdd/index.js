@@ -1,3 +1,4 @@
+import React from 'react';
 import './TodoListAdd.css';
 
 function TodoListAdd(props){
@@ -10,7 +11,9 @@ function TodoListAdd(props){
 
         {props.loading && props.onLoading()}
 
-        {/* {(!props.loading && !props.searchedTodosListed.length) && props.onEmptyTodos()} */}
+        {(!props.loading && !props.searchedTodosListed.length) && props.onEmptyTodos()}
+
+        {props.searchedTodosListed.map(props.render)}
         
         <ul>
           {props.children}
