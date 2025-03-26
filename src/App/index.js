@@ -50,7 +50,7 @@ function App() {
         <TodosError /> //Mostrar mensaje de error
       ) : (
         <>
-          {loading && <TodosLoading />}
+          {/* {loading && <TodosLoading />} */}
 
           {(!loading && searchedTodosListed.length === 0 && searchedTodosDoing.length=== 0
             && searchedTodosDone.length === 0) &&
@@ -84,14 +84,14 @@ function App() {
             loading={loading}
             searchedTodosListed={searchedTodosListed}
             onLoading={() => <TodosLoading />}
-            onEmptyTodos={() => <EmptyTodos />}
+            //onEmptyTodos={() => <EmptyTodos />}
             render={todo => (
               <TodoItem
                 key={todo.text}
                 text={todo.text}
                 onDoing={() => doingTodo(todo.text)}
                 onDelete={() => deleteTodo(todo.text)}
-              />
+              /> 
             )}
           >
             {!loading && (
@@ -127,7 +127,20 @@ function App() {
                 </Modal>
               )}
                 
-            <TodoListDoing>
+            <TodoListDoing 
+              loading={loading}
+              searchedTodosDoing={searchedTodosDoing}
+              onLoading={() => <TodosLoading />}
+              render={todo => (
+                <TodoItemDoing 
+                  key={todo.text} 
+                  text={todo.text} 
+                  onComplete={() => completeTodo(todo.text)}
+                  onTodo={() => returnTodo(todo.text)}
+                />
+              )}
+            />
+            {/* <TodoListDoing>
               {loading && <TodosLoading />}
               {searchedTodosDoing.map(todo => (
                 <TodoItemDoing 
@@ -137,9 +150,20 @@ function App() {
                   onTodo={() => returnTodo(todo.text)}
                 />
               ))}
-            </TodoListDoing>
+            </TodoListDoing> */}
         
-            <TodoListDone>
+            <TodoListDone 
+              loading={loading} 
+              searchedTodosDone={searchedTodosDone}
+              onLoading={() => <TodosLoading />}
+              render={todo => (
+                <TodoItemDone 
+                  key={todo.text} 
+                  text={todo.text}            
+                />
+              )}
+            />
+            {/* <TodoListDone>
               {loading && <TodosLoading />}
               {searchedTodosDone.map(todo => (
                 <TodoItemDone 
@@ -147,7 +171,7 @@ function App() {
                   text={todo.text}            
                 />
               ))}
-            </TodoListDone> 
+            </TodoListDone>  */}
           </div>
           
         </>

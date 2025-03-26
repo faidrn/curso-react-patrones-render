@@ -1,14 +1,20 @@
 import './TodoListDoing.css';
 
-function TodoListDoing({ children }){
+function TodoListDoing(props){
     return (
       <div className='container-list-doing hidden'>
         <h2>
           Doing
         </h2>
 
+        {props.loading && props.onLoading()}
+
+        {!props.loading && !props.searchedTodosDoing.length}
+
+        {props.searchedTodosDoing.map(props.render)}
+
         <ul>
-          {children}
+          {props.children}
         </ul>
       </div>
     );

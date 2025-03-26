@@ -11,7 +11,8 @@ function TodoListAdd(props){
 
         {props.loading && props.onLoading()}
 
-        {(!props.loading && !props.searchedTodosListed.length) && props.onEmptyTodos()}
+        {/* {(!props.loading && !props.searchedTodosListed.length) && props.onEmptyTodos()} */}
+        {!props.loading && !props.searchedTodosListed.length}
 
         {props.searchedTodosListed.map(props.render)}
         
