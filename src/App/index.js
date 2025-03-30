@@ -50,16 +50,8 @@ function App() {
         <TodosError /> //Mostrar mensaje de error
       ) : (
         <>
-          {/* {loading && <TodosLoading />} */}
-
-          {(!loading && searchedTodosListed.length === 0 && searchedTodosDoing.length=== 0
-            && searchedTodosDone.length === 0) &&
-              <EmptyTodos />
-          } 
-    
-
-          {!loading && (searchedTodosListed.length > 0 || searchedTodosDoing.length > 0
-            || searchedTodosDone.length > 0) && (
+         
+          {!loading && (
               <>
                 <TodoHeader>
                   <TodoCounter 
@@ -75,49 +67,40 @@ function App() {
               </>
             )
           }
+
+          {(!loading && searchedTodosListed.length === 0 && searchedTodosDoing.length=== 0
+            && searchedTodosDone.length === 0) &&
+              <EmptyTodos 
+              totalTodos={totalTodos}
+              searchText={searchValue}
+              />
+          }
               
           <TodoTabs />
                 
                 
           <div className='todo-container'> 
-          <TodoListAdd
-            loading={loading}
-            searchedTodosListed={searchedTodosListed}
-            onLoading={() => <TodosLoading />}
-            //onEmptyTodos={() => <EmptyTodos />}
-            render={todo => (
-              <TodoItem
-                key={todo.text}
-                text={todo.text}
-                onDoing={() => doingTodo(todo.text)}
-                onDelete={() => deleteTodo(todo.text)}
-              /> 
-            )}
-          >
-            {!loading && (
-              <CreateTodoButton setOpenModal={setOpenModal} />
-            )}
-          </TodoListAdd>
-
-            {/* <TodoListAdd>
-              {loading && <TodosLoading />}
-              {searchedTodosListed.map(todo => (
-                <TodoItem 
-                  key={todo.text} 
-                  text={todo.text} 
+            <TodoListAdd
+              loading={loading}
+              searchedTodosListed={searchedTodosListed}
+              onLoading={() => <TodosLoading />}
+              //onEmptyTodos={() => <EmptyTodos />}
+              render={todo => (
+                <TodoItem
+                  key={todo.text}
+                  text={todo.text}
                   onDoing={() => doingTodo(todo.text)}
                   onDelete={() => deleteTodo(todo.text)}
-                />
-                  
-              ))} 
-                  
-              {!loading && (
-                <CreateTodoButton 
-                  setOpenModal={setOpenModal}
-                />
+                /> 
               )}
-                          
-            </TodoListAdd> */}
+            >
+              {!loading && (
+                <CreateTodoButton setOpenModal={setOpenModal} />
+              )}
+              
+            </TodoListAdd>
+
+            
             {openModal && (
                 <Modal>
                   <TodoForm 
@@ -125,7 +108,7 @@ function App() {
                     setOpenModal={setOpenModal}
                   />
                 </Modal>
-              )}
+            )}
                 
             <TodoListDoing 
               loading={loading}
@@ -140,17 +123,7 @@ function App() {
                 />
               )}
             />
-            {/* <TodoListDoing>
-              {loading && <TodosLoading />}
-              {searchedTodosDoing.map(todo => (
-                <TodoItemDoing 
-                  key={todo.text} 
-                  text={todo.text} 
-                  onComplete={() => completeTodo(todo.text)}
-                  onTodo={() => returnTodo(todo.text)}
-                />
-              ))}
-            </TodoListDoing> */}
+            
         
             <TodoListDone 
               loading={loading} 
@@ -163,15 +136,7 @@ function App() {
                 />
               )}
             />
-            {/* <TodoListDone>
-              {loading && <TodosLoading />}
-              {searchedTodosDone.map(todo => (
-                <TodoItemDone 
-                  key={todo.text} 
-                  text={todo.text}            
-                />
-              ))}
-            </TodoListDone>  */}
+            
           </div>
           
         </>
