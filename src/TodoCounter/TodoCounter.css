@@ -10,6 +10,10 @@
     font-weight: bold;
 }
 
+.TodoCounter--loading{
+    opacity: 50%;
+}
+
 
 /* Estilos para pantallas pequeñas */
 /* max = hasta*/

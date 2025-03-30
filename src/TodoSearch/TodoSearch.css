@@ -33,6 +33,10 @@
     width: 25px;
 }
 
+.input-search:disabled{
+  opacity: 75%;
+}
+
 /* Estilos para pantallas pequeñas */
 /* max = hasta*/
 @media (max-width: 600px) {

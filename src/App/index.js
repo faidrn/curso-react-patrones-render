@@ -50,10 +50,21 @@ function App() {
         <TodosError /> //Mostrar mensaje de error
       ) : (
         <>
-         
-          {!loading && (
+
+          <TodoHeader loading={loading}>
+            <TodoCounter 
+              totalTodos={totalTodos} 
+              completedTodos={completedTodos}
+            /> 
+                          
+            <TodoSearch 
+              searchValue={searchValue} 
+              setSearchValue={setSearchValue}
+            />
+          </TodoHeader> 
+          {/* {!loading && (
               <>
-                <TodoHeader>
+                <TodoHeader loading={loading}>
                   <TodoCounter 
                     totalTodos={totalTodos} 
                     completedTodos={completedTodos}
@@ -66,7 +77,7 @@ function App() {
                 </TodoHeader>
               </>
             )
-          }
+          } */}
 
           {(!loading && searchedTodosListed.length === 0 && searchedTodosDoing.length=== 0
             && searchedTodosDone.length === 0) &&
