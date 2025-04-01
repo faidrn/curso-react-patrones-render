@@ -62,22 +62,7 @@ function App() {
               setSearchValue={setSearchValue}
             />
           </TodoHeader> 
-          {/* {!loading && (
-              <>
-                <TodoHeader loading={loading}>
-                  <TodoCounter 
-                    totalTodos={totalTodos} 
-                    completedTodos={completedTodos}
-                  /> 
-                          
-                  <TodoSearch 
-                    searchValue={searchValue} 
-                    setSearchValue={setSearchValue}
-                  />
-                </TodoHeader>
-              </>
-            )
-          } */}
+         
 
           {(!loading && searchedTodosListed.length === 0 && searchedTodosDoing.length=== 0
             && searchedTodosDone.length === 0) &&
