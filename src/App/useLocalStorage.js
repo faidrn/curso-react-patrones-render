@@ -18,20 +18,19 @@ function useLocalStorage(itemName, initialValue){
   
         if (!localStorageItem){
           localStorage.setItem(itemName, JSON.stringify(initialValue));
-          //parsedItem = [];
           parsedItem = initialValue;
         } else {
           parsedItem = JSON.parse(localStorageItem);
-          setItem(parsedItem);
         }
-  
+
+        setItem(parsedItem);
         setLoading(false);
       } catch(error){
         setLoading(false);
-        setError(true);
+        setError(error);
       }
     }, 2000);
-  }, []);
+  }, []); // esto evita q la página se refresque cad 2 segundos
 
 
 

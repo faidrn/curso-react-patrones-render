@@ -18,6 +18,7 @@ import { Modal } from '../Modal';
 import { TodoForm } from '../TodoForm';
 import { TodoHeader } from '../TodoHeader';
 import { TodoUser } from '../TodoUser';
+import { ChangeAlertWithStorageListener } from '../ChangeAlert';
 
 
 function App() {
@@ -137,6 +138,9 @@ function App() {
           
         </>
       )}
+
+      <ChangeAlertWithStorageListener />
+
     </>
     //</React.Fragment> = </>
   );
