@@ -3,6 +3,7 @@ import React from "react";
 
 function useLocalStorage(itemName, initialValue){
 
+  const [sincronizedItem, setSincronizedItem] = React.useState(true);
   const [item, setItem] = React.useState(initialValue);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(false); // Cambia a tru para activar la simulación de error
@@ -25,13 +26,14 @@ function useLocalStorage(itemName, initialValue){
 
         setItem(parsedItem);
         setLoading(false);
+        setSincronizedItem(true); // Esto ayuda a que desaparezca la alerta
       } catch(error){
         setLoading(false);
         setError(error);
       }
     }, 2000);
-  }, []); // esto evita q la página se refresque cad 2 segundos
-
+  }, [sincronizedItem]); // esto evita q la página se refresque cad 2 segundos
+                        // pero cada vez que hay un cambio en sincronizedItem, vuelve a ejecutar este useEffect
 
 
 
@@ -41,11 +43,20 @@ function useLocalStorage(itemName, initialValue){
     setItem(newItem);
   };
 
+  const sincronizeItem = () => {
+    // Disparamos dos cambios en los estados
+    // Primero volvemos al estado de carga
+    setLoading(true);
+
+    setSincronizedItem(false);
+  };
+
   return {
     item, 
     saveItem, 
     loading, 
-    error,
+    error, 
+    sincronizeItem, 
   };
 }
 
