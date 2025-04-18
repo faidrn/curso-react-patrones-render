@@ -2,7 +2,7 @@ import React from 'react';
 import './TodoListAdd.css';
 
 function TodoListAdd(props){
-  //const renderFunc = props.children || props.render;
+  const renderFunc = props.children || props.render;
 
     return (
       
@@ -18,8 +18,9 @@ function TodoListAdd(props){
         {props.searchedTodosListed.map(props.render)}
         
         <ul>
-          {props.children}  {/* button */}
+          {props.children} 
         </ul>
+        {/* {(!props.loading && !props.console.error) && props.searchedTodosListed.map(renderFunc)} */}
       </div>
     );
   }
