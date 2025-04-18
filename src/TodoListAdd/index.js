@@ -2,7 +2,7 @@ import React from 'react';
 import './TodoListAdd.css';
 
 function TodoListAdd(props){
-  const renderFunc = props.children || props.render;
+  //const renderFunc = props.children || props.render;
 
     return (
       
