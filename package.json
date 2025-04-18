@@ -31,8 +31,11 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://faidrn.github.io/curso-react-intro",
+  "homepage": "https://faidrn.github.io/curso-react-patrones-render",
   "devDependencies": {
     "gh-pages": "^6.3.0"
+  }, 
+  "gh-pages": {
+    "depth": 1
   }
 }
